@@ -7,7 +7,8 @@ class AppExtension {
     Project project
 
     File preLoadResUrlFile
-    String outputDir = "/src/main/assets/preLoaded"
+    String buildTmpDir = "/build/tmp/fastnetloader"
+    String outputDir = "src/main/assets"
 
     AppExtension(Project project) {
         this.project = project

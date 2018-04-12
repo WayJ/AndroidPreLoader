@@ -3,6 +3,7 @@ package com.tianque.fastnetloader.gradle
 import com.tianque.fastnetloader.gradle.task.CollectPreloadResTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.tasks.bundling.Zip
 
 class AppPlugin implements Plugin<Project> {
     protected Project project
@@ -37,13 +38,23 @@ class AppPlugin implements Plugin<Project> {
             project.tasks.find{
                 it.name.contains("preBuild")
             }.each {
-                def targetDic = project.file(getExtension().outputDir)
-                CollectPreloadResTask task = project.tasks.create("collectPreLoadResources", CollectPreloadResTask) {
+                def buildTmpDic = project.file(getExtension().buildTmpDir)
+                def zipTargetFile = project.file(getExtension().outputDir)
+                CollectPreloadResTask collectPreloadResTask = project.tasks.create("collectPreLoadResources", CollectPreloadResTask) {
                     appExtension = getExtension()
-                    outputDic = targetDic
+                    outputDic = buildTmpDic
                 }
-                task.group = "fastNetLoader"
-                it.dependsOn(task)
+                collectPreloadResTask.group = "fastNetLoader"
+
+                def zipTask = project.tasks.create("transformZipResources", Zip){
+                    from(buildTmpDic.path)
+                    archiveName 'preLoaded.zip'
+                    destinationDir zipTargetFile
+                }
+//                zipTask.from(getExtension().buildTmpDir)
+                zipTask.group = "fastNetLoader"
+                zipTask.dependsOn(collectPreloadResTask)
+                it.dependsOn(zipTask)
             }
         }
 

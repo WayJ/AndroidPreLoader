@@ -1,11 +1,16 @@
 package com.tianque.fastnetloader.util;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -53,4 +58,29 @@ public class StreamUtils {
         return false;
     }
 
+
+    public static Bitmap getBitmapFromInputStream(InputStream inputStream) {
+        try {
+            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);// 把输入流转换成Bitmap对象
+            return bitmap;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    public static String getStringFromInputStream(InputStream inputStream) {
+        try {
+            StringBuffer out = new StringBuffer();
+            byte[] b = new byte[4096];
+            for (int n; (n = inputStream.read(b)) != -1; ) {
+                out.append(new String(b, 0, n));
+            }
+            return out.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

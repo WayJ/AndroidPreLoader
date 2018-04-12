@@ -24,11 +24,11 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test putCache" />
+        android:text="show String cache" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Look My Cache" />
+        android:text="show Image cache" />
 </LinearLayout>
