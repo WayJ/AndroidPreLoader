@@ -403,6 +403,21 @@ public final class DiskLruCache implements Closeable {
     }
   }
 
+
+  public synchronized File getCacheFile(String key, int i){
+    checkNotClosed();
+    validateKey(key);
+    Entry entry = lruEntries.get(key);
+    if (entry == null) {
+      return null;
+    }
+
+    if (!entry.readable) {
+      return null;
+    }
+    return entry.getCleanFile(i);
+  }
+
   /**
    * Returns a snapshot of the entry named {@code key}, or null if it doesn't
    * exist is not currently readable. If a value is returned, it is moved to

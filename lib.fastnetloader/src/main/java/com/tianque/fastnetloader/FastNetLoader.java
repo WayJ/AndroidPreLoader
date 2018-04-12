@@ -138,7 +138,9 @@ public class FastNetLoader {
     }
 
 
-    public InputStream getInputStreamByUrl(String url){
+    public InputStream getInputStream(String url){
+        if(mDiskLruCache==null)
+            throw new RuntimeException("Cache not found");
         String key = MD5Utils.hashKeyForDisk(url);// 把Url转换成KEY
         try {
             DiskLruCache.Snapshot snapShot = mDiskLruCache.get(key);// 通过key获取Snapshot对象
@@ -150,6 +152,25 @@ public class FastNetLoader {
         }
         return null;
     }
+
+
+    /**
+     * 这里返回的文件名是加密过的文件名 类似 xxxxx.0，如果需要改名使用建议先copy，不要改动原文件
+     * @param url
+     * @return
+     */
+    public File getFile(String url){
+        if(mDiskLruCache==null)
+            throw new RuntimeException("Cache not found");
+        String key = MD5Utils.hashKeyForDisk(url);// 把Url转换成KEY
+        try {
+            return mDiskLruCache.getCacheFile(key,0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     private String getStoreKey(String preStr, Context context) {
         PackageManager pm = context.getPackageManager();//context为当前Activity上下文
