@@ -40,7 +40,7 @@
   
   <meta name="pjax-timeout" content="1000">
   
-  <meta name="request-id" content="DC66:4371:2EA228:424CEA:5ACE183B" data-pjax-transient>
+  <meta name="request-id" content="C8BF:2E5C:10605D:17D68E:5ACEC89F" data-pjax-transient>
 
 
   
@@ -52,8 +52,7 @@
   <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
     <meta name="google-analytics" content="UA-3769691-2">
 
-<meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="DC66:4371:2EA228:424CEA:5ACE183B" /><meta name="octolytics-dimension-region_edge" content="ap-southeast-1" /><meta name="octolytics-dimension-region_render" content="iad" />
-<meta name="hydro-events-url" content="https://github.com/hydro_browser_events" />
+<meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="C8BF:2E5C:10605D:17D68E:5ACEC89F" /><meta name="octolytics-dimension-region_edge" content="ap-southeast-1" /><meta name="octolytics-dimension-region_render" content="iad" />
 <meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" />
 
 
@@ -68,13 +67,13 @@
     <meta name="user-login" content="">
 
       <meta name="expected-hostname" content="github.com">
-    <meta name="js-proxy-site-detection-payload" content="MzI3ZGM4NWNkNjdkNzM5NjViYjVjNzI3YTY1NzExNDgzOGM0YTJlNWIyNGU3NjVhZjFiNTI0ODIxZTgyYjUxZHx7InJlbW90ZV9hZGRyZXNzIjoiMTE1LjIwMC4yMjUuNzgiLCJyZXF1ZXN0X2lkIjoiREM2Njo0MzcxOjJFQTIyODo0MjRDRUE6NUFDRTE4M0IiLCJ0aW1lc3RhbXAiOjE1MjM0NTYwNjcsImhvc3QiOiJnaXRodWIuY29tIn0=">
+    <meta name="js-proxy-site-detection-payload" content="N2I0ZTIxNGQzYWUxNGY2MGE3OGFlYmUxZjBmZDQzMzhkOGQ3NDE5NTI2ZWYzNGI1OGI3OTlhZmI0ZjQ0YTI0NXx7InJlbW90ZV9hZGRyZXNzIjoiMTE1LjIwMC4yMjUuNzgiLCJyZXF1ZXN0X2lkIjoiQzhCRjoyRTVDOjEwNjA1RDoxN0Q2OEU6NUFDRUM4OUYiLCJ0aW1lc3RhbXAiOjE1MjM1MDEyMTYsImhvc3QiOiJnaXRodWIuY29tIn0=">
 
     <meta name="enabled-features" content="UNIVERSE_BANNER,FREE_TRIALS,MARKETPLACE_INSIGHTS,MARKETPLACE_SELF_SERVE,MARKETPLACE_INSIGHTS_CONVERSION_PERCENTAGES">
 
-  <meta name="html-safe-nonce" content="3519a0f3a72465ab2026cd977a8ab17492815d10">
+  <meta name="html-safe-nonce" content="41fb14d187373843e96c5b4c7029a06c47faad94">
 
-  <meta http-equiv="x-pjax-version" content="4944c5c0a4d6c25a085540679ea79cd9">
+  <meta http-equiv="x-pjax-version" content="c8943ef4c62ccb497d237e7eba5d1313">
   
 
       <link href="https://github.com/WayJ/FastNetLoader/commits/master.atom" rel="alternate" title="Recent Commits to FastNetLoader:master" type="application/atom+xml">
@@ -316,7 +315,7 @@
   <div class="repository-content ">
 
     
-  <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/WayJ/FastNetLoader/blob/0f03b7f8b739ea6f41705073ac71225f88cc9559/README.md">Permalink</a>
+  <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/WayJ/FastNetLoader/blob/56529f55ae874e672f72ed8c549e6ce28a425b38/README.md">Permalink</a>
 
   <!-- blob contrib key: blob_contributors:v21:aedb85ab1893baff13ea9159be626d8f -->
 
@@ -487,7 +486,7 @@
 <div class="footer container-lg px-3" role="contentinfo">
   <div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
     <ul class="list-style-none d-flex flex-wrap ">
-      <li class="mr-3">&copy; 2018 <span title="0.26701s from unicorn-2891077682-07bdr">GitHub</span>, Inc.</li>
+      <li class="mr-3">&copy; 2018 <span title="0.37259s from unicorn-3173601602-wbfbd">GitHub</span>, Inc.</li>
         <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
         <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
         <li class="mr-3"><a href="https://help.github.com/articles/github-security/" data-ga-click="Footer, go to security, text:security">Security</a></li>
@@ -503,7 +502,7 @@
       <li class="mr-3"><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
       <li class="mr-3"><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
       <li class="mr-3"><a href="https://shop.github.com" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
-        <li class="mr-3"><a data-ga-click="Footer, go to blog, text:blog" href="https://github.com/blog">Blog</a></li>
+        <li class="mr-3"><a href="https://blog.github.com" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
         <li><a data-ga-click="Footer, go to about, text:about" href="https://github.com/about">About</a></li>
 
     </ul>
@@ -525,9 +524,9 @@
 
 
     <script crossorigin="anonymous" type="application/javascript" src="https://assets-cdn.github.com/assets/compat-413dd2a0695c3dfaf7de158468a91646.js"></script>
-    <script crossorigin="anonymous" type="application/javascript" src="https://assets-cdn.github.com/assets/frameworks-49c902708e6ab3bfd677e63a3dbdee68.js"></script>
+    <script crossorigin="anonymous" type="application/javascript" src="https://assets-cdn.github.com/assets/frameworks-b25bf608e8bd0ec193fc912dacc29162.js"></script>
     
-    <script crossorigin="anonymous" async="async" type="application/javascript" src="https://assets-cdn.github.com/assets/github-683b7dfaa058eed3ab827e1372c38947.js"></script>
+    <script crossorigin="anonymous" async="async" type="application/javascript" src="https://assets-cdn.github.com/assets/github-4af072e74f337e1b7d9c7ea844774cf1.js"></script>
     
     
     

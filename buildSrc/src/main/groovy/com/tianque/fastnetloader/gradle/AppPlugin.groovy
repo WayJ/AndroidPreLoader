@@ -34,15 +34,17 @@ class AppPlugin implements Plugin<Project> {
 
             updateExtension()
 
-            CollectPreloadResTask task = project.tasks.create("collectPreLoadResources", CollectPreloadResTask) {
-                appExtension = getExtension()
+            project.tasks.find{
+                it.name.contains("preBuild")
+            }.each {
+                def targetDic = project.file(getExtension().outputDir)
+                CollectPreloadResTask task = project.tasks.create("collectPreLoadResources", CollectPreloadResTask) {
+                    appExtension = getExtension()
+                    outputDic = targetDic
+                }
+                task.group = "fastNetLoader"
+                it.dependsOn(task)
             }
-            task.group = "fastNetLoader"
-//            project.tasks.find{
-//                it.name.contains("merge")&&it.name.contains("Assets")
-//            }.each {
-//                it.dependsOn(task)
-//            }
         }
 
     }

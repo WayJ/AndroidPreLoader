@@ -22,25 +22,30 @@ class CollectPreloadResTask extends DefaultTask {
     private int APP_VERSION = 1
     private static final int VALUES_COUNT = 1
 
-    public void setAppExtension(AppExtension extension) {
+    void setAppExtension(AppExtension extension) {
         this.appExtension = extension
 //        APP_VERSION = appExtension.project.version
     }
 
 //    @InputFile
-    public File getPreLoadResListFile() {
+    File getPreLoadResListFile() {
 //        preLoadResListFile=appExtension.preLoadResUrlFile
         return appExtension.preLoadResUrlFile
     }
 
-//    @OutputDirectory
-    public File getOutputDic() {
-        outputDic = project.file(appExtension.outputDir)
+
+    void setOutputDic(File file){
+        this.outputDic = file
+    }
+
+    File getOutputDic() {
+        if(outputDic==null)
+            outputDic = project.file(appExtension.outputDir)
         return outputDic
     }
 
     @TaskAction
-    public void collectPreLoadRes() {
+    void collectPreLoadRes() {
         println()
         println(TAG+" start read "+getPreLoadResListFile().name)
         def reader = new StrictLineReader(new FileInputStream(getPreLoadResListFile()), com.tianque.fastnetloader.gradle.util.Util.US_ASCII)
@@ -71,6 +76,7 @@ class CollectPreloadResTask extends DefaultTask {
                 def httpTask = new HttpGetTask(it,diskLruCache)
                 httpTask.doIt()
             }
+            diskLruCache.close()
         }
     }
 

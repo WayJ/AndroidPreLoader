@@ -25,6 +25,11 @@ class HttpGetTask{
         def result = false
         String key = com.tianque.fastnetloader.gradle.util.Util.hashKeyForDisk(url) // 通过md5加密了这个URL，生成一个key
         try {
+            if(diskLruCache.has(key)){
+                println("url已存在,跳过下载 : "+url)
+                return true
+            }
+
             DiskLruCache.Editor editor = diskLruCache.edit(key)// 产生一个editor对象
             if (editor != null) {
                 // 创建一个新的输出流 ，创建DiskLruCache时设置一个节点只有一个数据，所以这里的index直接设为0即可

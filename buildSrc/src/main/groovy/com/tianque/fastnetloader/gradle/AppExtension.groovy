@@ -7,9 +7,9 @@ class AppExtension {
     Project project
 
     File preLoadResUrlFile
-    String outputDir = "proLoaded"
+    String outputDir = "/src/main/assets/preLoaded"
 
-    public AppExtension(Project project) {
+    AppExtension(Project project) {
         this.project = project
 
     }

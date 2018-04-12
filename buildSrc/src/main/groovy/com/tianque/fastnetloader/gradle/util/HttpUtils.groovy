@@ -58,7 +58,16 @@ public class HttpUtils{
 //            def stream = new URL(url).openStream()
 
             def total = inS.available()
-            println("get: "+url+"  (size:"+(total/1024)+"K)")
+            char end = 'B'
+            if(total>1024){
+                total = total/1024
+                end = 'K'
+            }
+            if(total>1024){
+                total = total/1024
+                end = 'M'
+            }
+            println("get: "+url+"  (size:"+ total + end+ ")")
 
 
             outS = new BufferedOutputStream(outputStream, 8 * 1024)
