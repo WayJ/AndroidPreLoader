@@ -44,7 +44,7 @@ class AppPlugin implements Plugin<Project> {
                     appExtension = getExtension()
                     outputDic = buildTmpDic
                 }
-                collectPreloadResTask.group = "fastNetLoader"
+                collectPreloadResTask.group = "preLoader"
 
                 def zipTask = project.tasks.create("transformZipResources", Zip){
                     from(buildTmpDic.path)
@@ -52,7 +52,7 @@ class AppPlugin implements Plugin<Project> {
                     destinationDir zipTargetFile
                 }
 //                zipTask.from(getExtension().buildTmpDir)
-                zipTask.group = "fastNetLoader"
+                zipTask.group = "preLoader"
                 zipTask.dependsOn(collectPreloadResTask)
                 it.dependsOn(zipTask)
             }

@@ -10,7 +10,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 
-import com.tianque.preloader.disklrucache.DiskLruCache;
+import com.tianque.preloader.disklrucache.OnlyReadDiskCache;
 import com.tianque.preloader.util.MD5Utils;
 import com.tianque.preloader.util.StreamUtils;
 import com.tianque.preloader.util.ZipUtils;
@@ -24,7 +24,7 @@ import java.util.concurrent.Future;
 
 public class FastNetLoader {
 
-    private DiskLruCache mDiskLruCache;
+    private OnlyReadDiskCache mDiskLruCache;
     private Context appContext;
     private File cacheDirPath;
     private String zipFileName = "preLoaded.zip";
@@ -56,7 +56,7 @@ public class FastNetLoader {
         cacheDirPath = getDiskCacheDir(appContext, "preLoaded");
         try {
             checkCacheDirExist();
-            mDiskLruCache = DiskLruCache.open(cacheDirPath, APP_VERSION, VALUES_COUNT, DISK_CACHE_SIZE);
+            mDiskLruCache = OnlyReadDiskCache.open(cacheDirPath, APP_VERSION, VALUES_COUNT, DISK_CACHE_SIZE);
             pool = Executors.newFixedThreadPool(CORE_POOL_SIZE);
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,7 +93,7 @@ public class FastNetLoader {
                     String key = MD5Utils.hashKeyForDisk(url);// 把Url转换成KEY
                     String str=null;
                     try {
-                        DiskLruCache.Snapshot snapShot = mDiskLruCache.get(key);// 通过key获取Snapshot对象
+                        OnlyReadDiskCache.Snapshot snapShot = mDiskLruCache.get(key);// 通过key获取Snapshot对象
                         if (snapShot != null) {
                             InputStream is = snapShot.getInputStream(0);// 通过Snapshot对象获取缓存文件的输入流
                             str = StreamUtils.getStringFromInputStream(is);
@@ -120,7 +120,7 @@ public class FastNetLoader {
                     String key = MD5Utils.hashKeyForDisk(url);// 把Url转换成KEY
                     Bitmap bitmap=null;
                     try {
-                        DiskLruCache.Snapshot snapShot = mDiskLruCache.get(key);// 通过key获取Snapshot对象
+                        OnlyReadDiskCache.Snapshot snapShot = mDiskLruCache.get(key);// 通过key获取Snapshot对象
                         if (snapShot != null) {
                             InputStream is = snapShot.getInputStream(0);// 通过Snapshot对象获取缓存文件的输入流
                             bitmap = StreamUtils.getBitmapFromInputStream(is);
@@ -143,7 +143,7 @@ public class FastNetLoader {
             throw new RuntimeException("Cache not found");
         String key = MD5Utils.hashKeyForDisk(url);// 把Url转换成KEY
         try {
-            DiskLruCache.Snapshot snapShot = mDiskLruCache.get(key);// 通过key获取Snapshot对象
+            OnlyReadDiskCache.Snapshot snapShot = mDiskLruCache.get(key);// 通过key获取Snapshot对象
             if (snapShot != null) {
                 return snapShot.getInputStream(0);// 通过Snapshot对象获取缓存文件的输入流
             }

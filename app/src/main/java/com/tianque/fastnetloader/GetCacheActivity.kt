@@ -16,11 +16,12 @@ class GetCacheActivity : AppCompatActivity() {
 //        get url from other api,load url
         var url = intent.getStringExtra("url")
 
-        if(url.contains("img"))
-            loader.getBitmap(url){ url, found, data ->
-                if(found)
+        if(url.contains("img")) {
+            loader.getBitmap(url) { url, found, data ->
+                if (found)
                     findViewById<ImageView>(R.id.imageView).setImageBitmap(data)
             }
+        }
         else
             loader.getString(url){ url, found, data ->
                 if(found)

@@ -41,6 +41,8 @@ android library， preload Resoureces , 网络资源 预加载,打包前自动�
 
 ![](https://i.imgur.com/rPkqqVD.png)
 
+![](https://i.imgur.com/8LQOiTp.png)
+
 如此，app build时，会自动从preLoad.txt中读取要准备的资源（文件、接口返回数据），下载至tmp文件夹中，然后压缩放入assets（该处assets为默认路径，还未实现可配置）。资源会自动判断不会重复下载。  
 注意点： 
  

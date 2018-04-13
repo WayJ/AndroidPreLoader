@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
 //        get cache
         findViewById<Button>(R.id.button2).setOnClickListener({
-            var url1 = "https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super"
+            var url1 = "http://img.netbian.com/file/2018/0413/5a2411796f04babecffe00034066608a.jpg"
             var intent = Intent(this,GetCacheActivity::class.java)
             intent.putExtra("url",url1)
             startActivity(intent)
