@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -13,7 +14,7 @@ import java.net.URL;
 
 
 public class StreamUtils {
-    private final static String TAG = "FastNetLoader";
+    private final static String TAG = "PreLoader";
 
     /**
      * Download a bitmap from a URL and write the content to an output stream.
@@ -49,6 +50,8 @@ public class StreamUtils {
                 if (in != null) {
                     in.close();
                 }
+                if(outputStream!=null)
+                    outputStream.close();
             } catch (final IOException e) {
             }
         }
@@ -62,6 +65,8 @@ public class StreamUtils {
             return bitmap;
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            closeQuietly(inputStream);
         }
         return null;
     }
@@ -78,6 +83,21 @@ public class StreamUtils {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }finally {
+            closeQuietly(inputStream);
+        }
+    }
+
+
+
+    static void closeQuietly(/*Auto*/Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (RuntimeException rethrown) {
+                throw rethrown;
+            } catch (Exception ignored) {
+            }
         }
     }
 }

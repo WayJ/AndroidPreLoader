@@ -1,4 +1,4 @@
-# FastNetLoader
+# PreLoader
 android library， preload Resoureces , 网络资源 预加载,打包前自动下载指定资源
 
 -----
@@ -6,7 +6,7 @@ android library， preload Resoureces , 网络资源 预加载,打包前自动�
 ##实现功能 
 
  - 预加载
- 	1.  (完成)通过app的build.gradle中配置 fastnetloader.preLoadResUrlFile = file("preLoad.txt") 来指定一个txt文件。txt文件中标出需要预加载的资源url,一行一个。  
+ 	1.  (完成)通过app的build.gradle中配置 PreLoader.preLoadResUrlFile = file("preLoad.txt") 来指定一个txt文件。txt文件中标出需要预加载的资源url,一行一个。
  	2.  (完成)通过新建一个task 下载指定资源放入asset或者指定目录下，默认src/main/assets/preLoaded
  	3.  (完成)task嵌入task:preBuild之前，自动完成,可增量更新，已下载资源不会重复下载，如有问题，请手动删除asset下缓存文件
 	4.  (完成)程序首次运行时，优先使用-预加载的资源
@@ -25,7 +25,7 @@ android library， preload Resoureces , 网络资源 预加载,打包前自动�
     
     apply plugin: 'com.tianque.preloader'
     
-    fastnetloader {
+    preloader {
     	preLoadResUrlFile = file("preLoad.txt")
     }
 
@@ -37,7 +37,7 @@ android library， preload Resoureces , 网络资源 预加载,打包前自动�
 在app文件夹中放入preLoad.txt文件，文件内容为每行一个url
 
     https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super
-    https://github.com/WayJ/FastNetLoader/blob/master/README.md
+    https://github.com/WayJ/PreLoader/blob/master/README.md
 
 ![](https://i.imgur.com/rPkqqVD.png)
 
@@ -51,7 +51,7 @@ android library， preload Resoureces , 网络资源 预加载,打包前自动�
 
 app使用缓存的资源（kotlin）
 
-	var loader = FastNetLoader(this)
+	var loader = PreLoader(this)
 	//get url from other api,load url
    	var url = intent.getStringExtra("url")
     if(url.contains("img"))
@@ -71,4 +71,12 @@ loader.getXXXX方法有些是传入一个action类，因为使用了异步线程
  - String
  - Bitmap
  - inputStream
- - File
+ - File  
+
+
+
+##用在哪里
+ - app需要使用一个较大的资源（图片或者数据量返回较大的接口数据），打包前预加载好，提高首次使用的用户体验
+ - webview拦截公共资源加载请求，使用预加载的公共资源（http://ju.outofmemory.cn/entry/103239）  
+
+

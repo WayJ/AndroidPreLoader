@@ -20,11 +20,11 @@ class AppPlugin implements Plugin<Project> {
 
     protected void createExtension() {
         // Add the 'small' extension object
-        extension = project.extensions.create('fastnetloader', AppExtension, project)
+        extension = project.extensions.create('preloader', AppExtension, project)
     }
 
     protected void updateExtension() {
-        extension = project.extensions.findByName('fastnetloader')
+        extension = project.extensions.findByName('preloader')
     }
 
     protected void createTask(Project project) {

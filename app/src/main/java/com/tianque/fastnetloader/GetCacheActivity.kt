@@ -4,14 +4,14 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
 import android.widget.TextView
-import com.tianque.preloader.FastNetLoader
+import com.tianque.preloader.PreLoader
 
 class GetCacheActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_getcache)
-        var loader = FastNetLoader(this)
+        var loader = PreLoader(this)
 
 //        get url from other api,load url
         var url = intent.getStringExtra("url")

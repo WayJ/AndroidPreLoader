@@ -22,11 +22,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class FastNetLoader {
+public class PreLoader {
 
     private OnlyReadDiskCache mDiskLruCache;
     private Context appContext;
     private File cacheDirPath;
+    private static final String TAG="AndroidPreLoader";
     private String zipFileName = "preLoaded.zip";
 
     private static final int DISK_CACHE_SIZE = 1024 * 1024 * 1024; // 磁盘缓存的大小为50M
@@ -47,7 +48,7 @@ public class FastNetLoader {
         }
     };
 
-    public FastNetLoader(Context context) {
+    public PreLoader(Context context) {
         this.appContext = context.getApplicationContext();
         init();
     }
@@ -66,8 +67,8 @@ public class FastNetLoader {
 
 
     public void checkCacheDirExist() throws Exception {
-        SharedPreferences sharedPreferences = appContext.getSharedPreferences("FastNetLoader", Context.MODE_PRIVATE);
-        String key = getStoreKey("FastNetLoader", appContext);
+        SharedPreferences sharedPreferences = appContext.getSharedPreferences(TAG, Context.MODE_PRIVATE);
+        String key = getStoreKey(TAG, appContext);
         boolean hasDir = sharedPreferences.getBoolean(key, false);
         if (!hasDir) {
             unZipFromAssets(appContext);

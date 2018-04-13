@@ -25,7 +25,7 @@ android {
 
 apply plugin: 'com.tianque.preloader'
 
-fastnetloader {
+preloader {
     preLoadResUrlFile = file("preLoad.txt")
 }
 

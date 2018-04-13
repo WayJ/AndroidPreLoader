@@ -66,12 +66,18 @@ class CollectPreloadResTask extends DefaultTask {
         if(urlList.size()==0){
             println(TAG+"zero resources need preload")
         }else{
-            def diskLruCache = DiskLruCache.open(getOutputDic(),APP_VERSION,VALUES_COUNT,DISK_CACHE_SIZE)
-            urlList.each {
-                def httpTask = new HttpGetTask(it,diskLruCache)
-                httpTask.doIt()
+            def diskLruCache = null
+            try{
+                diskLruCache = DiskLruCache.open(getOutputDic(),APP_VERSION,VALUES_COUNT,DISK_CACHE_SIZE)
+                urlList.each {
+                    def httpTask = new HttpGetTask(it,diskLruCache)
+                    httpTask.doIt()
+                }
+            }catch (Exception e){
+                println(e)
+            }finally{
+                com.tianque.preloader.gradle.util.Util.closeQuietly(diskLruCache)
             }
-            diskLruCache.close()
         }
     }
 

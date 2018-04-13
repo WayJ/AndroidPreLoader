@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         /*set cache*/
         findViewById<Button>(R.id.button).setOnClickListener({
 
-            var url1 = "https://github.com/WayJ/FastNetLoader/blob/master/README.md"
+            var url1 = "https://github.com/WayJ/AndroidPreLoader/blob/master/README.md"
             var intent = Intent(this,GetCacheActivity::class.java)
             intent.putExtra("url",url1)
             startActivity(intent)
